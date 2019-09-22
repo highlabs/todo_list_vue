@@ -1,9 +1,10 @@
 <template>
-  <div class="py-4" :class="[done ? 'line-through opacity-25' : '']">
+  <div class="py-4 flex items-center" :class="[done ? 'line-through opacity-25' : '']">
     <input
       type="checkbox"
       :checked="done"
       :id="id"
+      class="mr-4"
       @change="onCheckBoxChange"
     />
     <label ref="label" :for="id">
