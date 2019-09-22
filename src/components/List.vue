@@ -1,18 +1,19 @@
 <template>
   <section>
     <Checkbox
-      ref="checkbox"
       v-for="todo in list"
+      :key="todo.id"
       :label="todo.label"
       :id="todo.id"
-      :key="todo.id"
-      :value="todo.completed"
-      @change="setValue"
+      :done="todo.completed"
+      @change="toggleTodo"
+      @click="toggleTodo"
     />
   </section>
 </template>
 
 <script>
+import { mapActions } from 'vuex'
 import Checkbox from '@/components/Checkbox'
 
 export default {
@@ -29,9 +30,7 @@ export default {
     }
   },
   methods: {
-    setValue (value) {
-      console.log(value)
-    }
+    ...mapActions(['toggleTodo'])
   }
 }
 </script>
