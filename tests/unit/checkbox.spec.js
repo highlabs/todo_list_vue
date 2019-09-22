@@ -21,7 +21,10 @@ describe('Checkbox.vue', () => {
     const checkbox = wrapper.find('input[type="checkbox"]')
     checkbox.setChecked()
 
-    expect(wrapper.emitted().change[0]).toEqual([true])
+    expect(wrapper.emitted().change[0]).toEqual([{
+      id: 'checkbox',
+      value: true
+    }])
   })
 
   it('change classes on component change', () => {
@@ -31,7 +34,7 @@ describe('Checkbox.vue', () => {
     const checkbox = wrapper.find('input[type="checkbox"]')
     checkbox.setChecked()
 
-    expect(wrapper.classes()).toContain('opacity-25')
-    expect(wrapper.classes()).toContain('line-through')
+    expect(wrapper.find({ ref: 'label' }).classes()).toContain('opacity-25')
+    expect(wrapper.find({ ref: 'label' }).classes()).toContain('line-through')
   })
 })
