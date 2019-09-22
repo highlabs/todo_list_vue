@@ -33,7 +33,7 @@ export default {
     onCheckBoxChange (e) {
       const value = this.done
       const id = this.id
-      this.$emit('change', { id, value })
+      this.$emit('change', id, value)
     }
   }
 }

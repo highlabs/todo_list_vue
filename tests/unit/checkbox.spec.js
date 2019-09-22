@@ -24,7 +24,8 @@ describe('Checkbox.vue', () => {
     const checkbox = wrapper.find('input[type="checkbox"]')
     checkbox.setChecked()
 
-    expect(wrapper.emitted().change[0][0].value).toEqual(false)
+    expect(wrapper.emitted().change[0][0]).toEqual('checkbox')
+    expect(wrapper.emitted().change[0][1]).toEqual(false)
   })
 
   it('change classes on component change', () => {
