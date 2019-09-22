@@ -48,7 +48,7 @@ describe('List.vue', () => {
 
     beforeEach(() => {
       actions = {
-        actionClick: jest.fn(),
+        removeTodo: jest.fn(),
         toggleTodo: jest.fn()
       }
       store = new Vuex.Store({
@@ -61,6 +61,13 @@ describe('List.vue', () => {
       wrapper.vm.toggleTodo()
 
       expect(actions.toggleTodo).toHaveBeenCalled()
+    })
+
+    it('dispatches "toggleTodo" when checkbox has been called', () => {
+      const wrapper = shallowMount(List, { store, localVue, propsData })
+      wrapper.vm.removeTodo()
+
+      expect(actions.removeTodo).toHaveBeenCalled()
     })
   })
 })

@@ -1,14 +1,17 @@
 <template>
   <section>
-    <Checkbox
-      v-for="todo in list"
-      :key="todo.id"
-      :label="todo.label"
-      :id="todo.id"
-      :done="todo.completed"
-      @change="toggleTodo"
-      @click="toggleTodo"
-    />
+    <div v-for="todo in list" :key="todo.id" class="flex flex-row items-center">
+      <Checkbox
+        :label="todo.label"
+        :id="todo.id"
+        :done="todo.completed"
+        @change="toggleTodo"
+        @click="toggleTodo"
+      />
+      <button class="ml-auto text-xs" @click="() => removeTodo(todo)">
+        Remover
+      </button>
+    </div>
   </section>
 </template>
 
@@ -30,7 +33,7 @@ export default {
     }
   },
   methods: {
-    ...mapActions(['toggleTodo'])
+    ...mapActions(['toggleTodo', 'removeTodo'])
   }
 }
 </script>
