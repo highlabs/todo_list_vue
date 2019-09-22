@@ -1,7 +1,7 @@
 <template>
   <div id="app" class="container mx-auto px-6 font-body">
     <Header />
-    <List />
+    <List :list="list" />
   </div>
 </template>
 
@@ -14,6 +14,11 @@ export default {
   components: {
     Header,
     List
+  },
+  computed: {
+    list () {
+      return this.$store.state.todoList
+    }
   }
 }
 </script>
