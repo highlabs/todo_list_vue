@@ -46,6 +46,9 @@ export const mutations = {
 }
 
 export const actions = {
+  addTodo (context, todo) {
+    context.commit('addTodo', todo)
+  },
   toggleTodo (context, todo) {
     context.commit('toggleTodo', todo)
   },
