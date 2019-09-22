@@ -14,10 +14,10 @@
 
     <button ref="darkModeButton" class="px-2 py-1 text-sm" @click="toggleDarkMode">
       <span v-if="darkMode">
-        Modo Escuro
+        Modo Claro
       </span>
       <span v-else>
-        Modo Claro
+        Modo Escuro
       </span>
     </button>
   </div>
