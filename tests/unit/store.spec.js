@@ -52,7 +52,7 @@ describe('Vuex', () => {
     it('toggle Todo when commit toggleTodo', () => {
       const itemToToggle = todoList[1]
 
-      mutations.toggleTodo(state, itemToToggle)
+      mutations.toggleTodo(state, itemToToggle.id)
 
       expect(state.todoList[0].completed).toBe(true)
       expect(state.todoList[1].completed).toBe(false)
