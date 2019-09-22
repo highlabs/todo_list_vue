@@ -29,6 +29,9 @@ export default {
     list () {
       return this.$store.state.todoList
     },
+    trash () {
+      return this.$store.state.trashList
+    },
     darkMode () {
       return this.$store.state.darkMode
     }

@@ -43,14 +43,5 @@ describe('Menu.vue', () => {
 
       expect(actions.toggleDone).toHaveBeenCalled()
     })
-
-    it('dispatches "toggleArchived" button is clicked', () => {
-      const wrapper = shallowMount(Menu, { store, localVue })
-
-      const button = wrapper.find({ ref: 'archiveButton' })
-      button.trigger('click')
-
-      expect(actions.toggleTrash).toHaveBeenCalled()
-    })
   })
 })

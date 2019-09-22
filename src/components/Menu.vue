@@ -3,14 +3,12 @@
     class="flex justify-between md:justify-end py-2 border-b border-t"
     :class="[darkMode ? 'bg-black border-gray-800' : 'bg-white border-gray-200']"
   >
-    <button ref="darkModeButton" class="px-2 py-1 text-sm" @click="toggleDarkMode">
-      Modo Noturno
-    </button>
     <button ref="doneButton" class="px-2 py-1 text-sm" @click="toggleDone">
       Esconder concluídos
     </button>
-    <button ref="archiveButton" class="px-2 py-1 text-sm" @click="toggleTrash">
-      Mostrar arquivados
+
+    <button ref="darkModeButton" class="px-2 py-1 text-sm" @click="toggleDarkMode">
+      Modo Noturno
     </button>
   </div>
 </template>
@@ -26,7 +24,7 @@ export default {
     }
   },
   methods: {
-    ...mapActions(['toggleDarkMode', 'toggleDone', 'toggleTrash'])
+    ...mapActions(['toggleDarkMode', 'toggleDone'])
   }
 }
 </script>
