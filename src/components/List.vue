@@ -1,16 +1,18 @@
 <template>
   <section>
-    <div v-for="todo in list" :key="todo.id" class="flex flex-row items-center">
-      <Checkbox
-        :label="todo.label"
-        :id="todo.id"
-        :done="todo.completed"
-        @change="toggleTodo"
-        @click="toggleTodo"
-      />
-      <button class="ml-auto text-xs" @click="() => removeTodo(todo)">
-        Remover
-      </button>
+    <div  v-for="todo in list" :key="todo.id" class="border-b border-gray-200">
+      <div class="flex flex-row items-center container mx-auto px-6">
+        <Checkbox
+          :label="todo.label"
+          :id="todo.id"
+          :done="todo.completed"
+          @change="toggleTodo"
+          @click="toggleTodo"
+        />
+        <button class="ml-auto text-xs" @click="() => removeTodo(todo)">
+          Remover
+        </button>
+      </div>
     </div>
   </section>
 </template>

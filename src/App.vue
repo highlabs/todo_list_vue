@@ -1,7 +1,11 @@
 <template>
-  <div id="app" class="container mx-auto px-6 font-body">
+  <div id="app" class="font-body pb-16">
     <Header />
-    <List :list="list" />
+    <List :list="list" v-if="list.length > 0" />
+    <div class="text-center" v-else>
+      <p>Você não tem tarefas! (」°ロ°)」</p>
+      <p>Escreve ali em baixo e clica no + pra começar! (⌒_⌒;)</p>
+    </div>
     <AddInput />
   </div>
 </template>
