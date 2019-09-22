@@ -4,7 +4,7 @@ import Checkbox from '@/components/Checkbox.vue'
 const propsData = {
   id: 'checkbox',
   label: 'Lorem Ipsum',
-  value: false
+  done: false
 }
 describe('Checkbox.vue', () => {
   it('renders props.label when passed', () => {
@@ -12,7 +12,7 @@ describe('Checkbox.vue', () => {
       propsData
     })
 
-    expect(wrapper.find({ ref: 'spanLabel' }).text()).toMatch(propsData.label)
+    expect(wrapper.find({ ref: 'label' }).text()).toMatch(propsData.label)
   })
 
   it('send event to parent on change', () => {
@@ -23,6 +23,7 @@ describe('Checkbox.vue', () => {
     })
     const checkbox = wrapper.find('input[type="checkbox"]')
     checkbox.setChecked()
+
     expect(wrapper.emitted().change[0][0].value).toEqual(false)
   })
 
@@ -30,13 +31,13 @@ describe('Checkbox.vue', () => {
     const wrapper = shallowMount(Checkbox, {
       propsData: {
         ...propsData,
-        value: true
+        done: true
       }
     })
     const checkbox = wrapper.find('input[type="checkbox"]')
     checkbox.setChecked()
 
-    expect(wrapper.find({ ref: 'label' }).classes()).toContain('opacity-25')
-    expect(wrapper.find({ ref: 'label' }).classes()).toContain('line-through')
+    expect(wrapper.classes()).toContain('opacity-25')
+    expect(wrapper.classes()).toContain('line-through')
   })
 })
