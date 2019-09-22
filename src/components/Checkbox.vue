@@ -1,13 +1,11 @@
 <template>
-  <label class="b-contain py-4" :class="[checkboxInput ? 'line-through opacity-25' : '']">
-    <span ref="spanLabel">{{ label }}</span>
-    <input
-      type="checkbox"
-      v-model="checkboxInput"
-      @change="$emit('change', checkboxInput)"
-    />
-    <div class="b-input"></div>
-  </label>
+  <div class="py-4">
+    <label class="b-contain" :class="[checkboxInput ? 'line-through opacity-25' : '']">
+      <span ref="spanLabel">{{ label }}</span>
+      <input type="checkbox" v-model="checkboxInput" @change="$emit('change', checkboxInput)" />
+      <div class="b-input"></div>
+    </label>
+  </div>
 </template>
 
 <style scoped>
