@@ -67,11 +67,11 @@ describe('Menu.vue', () => {
 
       const button = wrapper.find({ ref: 'darkModeButton' })
 
-      expect(button.find('span').text()).toBe('Modo Claro')
+      expect(button.find('span').text()).toBe('Modo Escuro')
 
       mutations.toggleDarkMode(state, !state.darkMode)
 
-      expect(button.find('span').text()).toBe('Modo Escuro')
+      expect(button.find('span').text()).toBe('Modo Claro')
     })
 
     it('render correct text in Dark More button', () => {
