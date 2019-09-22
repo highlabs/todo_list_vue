@@ -1,7 +1,11 @@
 <template>
-  <label class="b-contain">
-    <span>{{ title }}</span>
-    <input type="checkbox" />
+  <label class="b-contain" :class="[checkboxInput ? 'line-through opacity-25' : '']">
+    <span ref="spanLabel">{{ label }}</span>
+    <input
+      type="checkbox"
+      v-model="checkboxInput"
+      @change="$emit('change', checkboxInput)"
+    />
     <div class="b-input"></div>
   </label>
 </template>
@@ -206,10 +210,19 @@
 <script>
 export default {
   name: 'Checkbox',
+  data () {
+    return {
+      checkboxInput: false
+    }
+  },
   props: {
-    title: {
+    label: {
       type: String,
       default: ''
+    },
+    id: {
+      type: String,
+      required: true
     }
   }
 }
