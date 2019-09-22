@@ -1,6 +1,7 @@
 {
-  "name": "todo_list",
-  "short_name": "todo_list",
+  "name": "Pra Lembrar",
+  "short_name": "Pra Lembrar",
+  "description" : "Mais um app para você listar suas tarefas.",
   "icons": [
     {
       "src": "./img/icons/android-chrome-192x192.png",
@@ -15,6 +16,6 @@
   ],
   "start_url": "./index.html",
   "display": "standalone",
-  "background_color": "#000000",
-  "theme_color": "#4DBA87"
+  "background_color": "#FFFFFF",
+  "theme_color": "#000000"
 }
