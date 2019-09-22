@@ -11,11 +11,15 @@
       v-model="todoText"
       type="text"
       id="add"
-      class="border border-solid border-1 rounded-sm px-2 py-1 w-full"
+      class="border border-solid border-1 border-r-0 px-2 py-1 w-full"
       :class="[darkMode ? 'bg-black border-gray-800' : 'bg-white border-gray-200']"
     />
 
-    <button class="px-4 py-2 font-bold" @click="validateForm">+</button>
+    <button
+      class="px-4 py-2 font-bold border border-solid border-1 border-l-0"
+      :class="[darkMode ? 'bg-black border-gray-800' : 'bg-white border-gray-200']"
+      @click="validateForm"
+    >+</button>
   </form>
 </template>
 
