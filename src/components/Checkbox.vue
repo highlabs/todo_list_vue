@@ -1,5 +1,5 @@
 <template>
-  <label class="b-contain" :class="[checkboxInput ? 'line-through opacity-25' : '']">
+  <label class="b-contain py-4" :class="[checkboxInput ? 'line-through opacity-25' : '']">
     <span ref="spanLabel">{{ label }}</span>
     <input
       type="checkbox"

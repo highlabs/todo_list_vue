@@ -1,22 +1,22 @@
 <template>
   <section>
-    <ListItem />
-    <ListItem />
-    <ListItem />
-    <ListItem />
-    <ListItem />
-    <ListItem />
+    <Checkbox />
+    <Checkbox />
+    <Checkbox />
+    <Checkbox />
+    <Checkbox />
+    <Checkbox />
 
   </section>
 </template>
 
 <script>
-import ListItem from '@/components/ListItem'
+import Checkbox from '@/components/Checkbox'
 
 export default {
   name: 'List',
   components: {
-    ListItem
+    Checkbox
   }
 }
 </script>
