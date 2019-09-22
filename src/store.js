@@ -21,7 +21,10 @@ export const mutations = {
     state.todoList.push(todo)
   },
   removeTodo (state, todo) {
-    state.todoList = state.todoList.filter(item => item.id !== todo.id)
+    const listWithoutTodo = state.todoList.filter(item => item.id !== todo.id)
+    const listWithTodo = state.todoList.filter(item => item.id === todo.id)[0]
+    state.todoList = listWithoutTodo
+    state.trashList.push(listWithTodo)
   },
   toggleTodo (state, todo) {
     state.todoList.map(item => {

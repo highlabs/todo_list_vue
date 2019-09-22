@@ -47,6 +47,7 @@ describe('Vuex', () => {
       expect(state.todoList[0]).toEqual(todoList[0])
       expect(state.todoList[1]).toEqual(todoList[2])
       expect(state.todoList[2]).toBe(undefined)
+      expect(state.trashList[0]).toBe(itemToRemove)
     })
 
     it('toggle darkMode when commit toggleDarkMode', () => {
