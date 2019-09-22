@@ -1,34 +1,37 @@
-# todo_list
+# A simple todo list
 
-## Project setup
+## About the project
+
+This project use Vue.js 2, Vuex Persist and Nanoid. It's a Single Page Application and all content stored in localstorage. :)
+
+The icon of the project are from [prettycons](https://www.flaticon.com/authors/prettycons).
+
+
+## To start the project
+
+Clone this repo.
+
 ```
-yarn install
+yarn
+yarn serve
 ```
 
 ### Compiles and hot-reloads for development
 ```
-yarn run serve
+yarn serve
 ```
 
 ### Compiles and minifies for production
 ```
-yarn run build
+yarn build
 ```
 
 ### Run your tests
 ```
-yarn run test
+yarn test
 ```
 
 ### Lints and fixes files
 ```
-yarn run lint
+yarn lint --fix
 ```
-
-### Run your unit tests
-```
-yarn run test:unit
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
