@@ -1,31 +1,15 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import VuexPersistence from 'vuex-persist'
+
+const vuexLocal = new VuexPersistence({
+  storage: window.localStorage
+})
 
 Vue.use(Vuex)
 
 export const state = {
-  todoList: [
-    {
-      id: '1',
-      label: 'Do the dishes',
-      completed: true
-    },
-    {
-      id: '2',
-      label: 'Write a post',
-      completed: false
-    },
-    {
-      id: '3',
-      label: 'Go to walk',
-      completed: false
-    },
-    {
-      id: '4',
-      label: 'Make dinner',
-      completed: true
-    }
-  ]
+  todoList: []
 }
 
 export const mutations = {
@@ -60,5 +44,6 @@ export const actions = {
 export default new Vuex.Store({
   state,
   mutations,
-  actions
+  actions,
+  plugins: [vuexLocal.plugin]
 })
