@@ -3,7 +3,8 @@ import Checkbox from '@/components/Checkbox.vue'
 
 const propsData = {
   id: 'checkbox',
-  label: 'Lorem Ipsum'
+  label: 'Lorem Ipsum',
+  value: false
 }
 describe('Checkbox.vue', () => {
   it('renders props.label when passed', () => {
@@ -16,20 +17,21 @@ describe('Checkbox.vue', () => {
 
   it('send event to parent on change', () => {
     const wrapper = shallowMount(Checkbox, {
-      propsData
+      propsData: {
+        ...propsData
+      }
     })
     const checkbox = wrapper.find('input[type="checkbox"]')
     checkbox.setChecked()
-
-    expect(wrapper.emitted().change[0]).toEqual([{
-      id: 'checkbox',
-      value: true
-    }])
+    expect(wrapper.emitted().change[0][0].value).toEqual(false)
   })
 
   it('change classes on component change', () => {
     const wrapper = shallowMount(Checkbox, {
-      propsData
+      propsData: {
+        ...propsData,
+        value: true
+      }
     })
     const checkbox = wrapper.find('input[type="checkbox"]')
     checkbox.setChecked()

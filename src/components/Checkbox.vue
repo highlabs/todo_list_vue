@@ -1,11 +1,16 @@
 <template>
   <div class="py-4">
-    <label ref="label" class="b-contain" :class="[checkboxInput ? 'line-through opacity-25' : '']">
+    <label ref="label" class="b-contain" :class="[value ? 'line-through opacity-25' : '']">
       <span ref="spanLabel">{{ label }}</span>
-      <input type="checkbox" v-model="checkboxInput" @change="$emit('change', {
-        value: checkboxInput,
-        id
-      })" />
+      <input
+        type="checkbox"
+        :checked="value"
+        :value="value"
+        @change="$emit('change', {
+          value: value,
+          id
+        })"
+      />
       <div class="b-input"></div>
     </label>
   </div>
@@ -211,11 +216,6 @@
 <script>
 export default {
   name: 'Checkbox',
-  data () {
-    return {
-      checkboxInput: false
-    }
-  },
   props: {
     label: {
       type: String,
@@ -223,6 +223,10 @@ export default {
     },
     id: {
       type: String,
+      required: true
+    },
+    value: {
+      type: Boolean,
       required: true
     }
   }
