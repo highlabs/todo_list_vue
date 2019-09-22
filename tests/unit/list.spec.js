@@ -1,6 +1,10 @@
-import { shallowMount } from '@vue/test-utils'
+import { shallowMount, createLocalVue } from '@vue/test-utils'
+import Vuex from 'vuex'
 import List from '@/components/List.vue'
 import Checkbox from '@/components/Checkbox.vue'
+
+const localVue = createLocalVue()
+localVue.use(Vuex)
 
 const propsData = {
   list: [
@@ -26,12 +30,37 @@ const propsData = {
     }
   ]
 }
+
 describe('List.vue', () => {
-  it('renders props.label when passed', () => {
-    const wrapper = shallowMount(List, {
-      propsData
+  describe('> Component', () => {
+    it('renders props.label when passed', () => {
+      const wrapper = shallowMount(List, {
+        propsData
+      })
+
+      expect(wrapper.findAll(Checkbox).length).toBe(propsData.list.length)
+    })
+  })
+
+  describe('> Actions', () => {
+    let actions
+    let store
+
+    beforeEach(() => {
+      actions = {
+        actionClick: jest.fn(),
+        toggleTodo: jest.fn()
+      }
+      store = new Vuex.Store({
+        actions
+      })
     })
 
-    expect(wrapper.findAll(Checkbox).length).toBe(propsData.list.length)
+    it('dispatches "toggleTodo" when checkbox has been called', () => {
+      const wrapper = shallowMount(List, { store, localVue, propsData })
+      wrapper.vm.toggleTodo()
+
+      expect(actions.toggleTodo).toHaveBeenCalled()
+    })
   })
 })
