@@ -5,7 +5,7 @@
     @submit.prevent="validateForm"
     @keydown.enter="validateForm"
   >
-    <label class="sr-only" for="add">Add New Todo</label>
+    <label class="sr-only" for="add">Adicionar Tarefa</label>
 
     <input
       v-model="todoText"
