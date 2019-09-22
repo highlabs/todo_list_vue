@@ -57,9 +57,9 @@ describe('Vuex', () => {
     })
 
     it('toggle showDone when commit toggleDone', () => {
-      mutations.toggleDarkMode(state, !state.showDone)
+      mutations.toggleDone(state, !state.showDone)
 
-      expect(state.showDone).toBe(true)
+      expect(state.showDone).toBe(false)
     })
 
     it('toggle showTrash when commit toggleTrash', () => {

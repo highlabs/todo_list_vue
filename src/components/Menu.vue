@@ -4,11 +4,21 @@
     :class="[darkMode ? 'bg-black border-gray-800' : 'bg-white border-gray-200']"
   >
     <button ref="doneButton" class="px-2 py-1 text-sm" @click="toggleDone">
-      Esconder concluídos
+      <span v-if="showDone">
+        Exibir Concluídos
+      </span>
+      <span v-else>
+        Esconder Concluídos
+      </span>
     </button>
 
     <button ref="darkModeButton" class="px-2 py-1 text-sm" @click="toggleDarkMode">
-      Modo Noturno
+      <span v-if="darkMode">
+        Modo Escuro
+      </span>
+      <span v-else>
+        Modo Claro
+      </span>
     </button>
   </div>
 </template>
@@ -21,6 +31,9 @@ export default {
   computed: {
     darkMode () {
       return this.$store.state.darkMode
+    },
+    showDone () {
+      return this.$store.state.showDone
     }
   },
   methods: {

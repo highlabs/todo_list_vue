@@ -1,7 +1,7 @@
 <template>
   <section>
     <div
-      v-for="todo in list"
+      v-for="todo in filteredList"
       :key="todo.id"
       class="border-b"
       :class="[darkMode ? 'bg-black border-gray-800' : 'bg-white border-gray-200']"
@@ -40,6 +40,15 @@ export default {
   computed: {
     darkMode () {
       return this.$store.state.darkMode
+    },
+    showDone () {
+      return this.$store.state.showDone
+    },
+    filteredList () {
+      if (this.showDone) {
+        return this.list.filter(item => item.completed === false)
+      }
+      return this.list
     }
   },
   methods: {

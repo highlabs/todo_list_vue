@@ -1,5 +1,6 @@
 import { shallowMount, createLocalVue } from '@vue/test-utils'
 import Vuex from 'vuex'
+import { mutations, state } from '@/store'
 import List from '@/components/List.vue'
 import Checkbox from '@/components/Checkbox.vue'
 
@@ -33,25 +34,22 @@ const propsData = {
 
 describe('List.vue', () => {
   describe('> Component', () => {
-    let state
     let store
 
     beforeEach(() => {
-      state = {
-        darkMode: false
-      }
       store = new Vuex.Store({
+        mutations,
         state
       })
     })
-    it('renders props.label when passed', () => {
+    it('renders props.list length', () => {
       const wrapper = shallowMount(List, {
         store,
         localVue,
         propsData
       })
 
-      expect(wrapper.findAll(Checkbox).length).toBe(propsData.list.length)
+      expect(wrapper.findAll(Checkbox).length).toBe(2)
     })
 
     it('check darkMode Computed', () => {
@@ -64,14 +62,16 @@ describe('List.vue', () => {
       expect(wrapper.vm.darkMode).toBe(false)
     })
 
-    it('check darkMode Computed', () => {
+    it('check filteredList Computed', () => {
       const wrapper = shallowMount(List, {
         store,
         localVue,
         propsData
       })
 
-      expect(wrapper.vm.darkMode).toBe(false)
+      mutations.toggleDone(state, !state.showDone)
+
+      expect(wrapper.findAll(Checkbox).length).toBe(4)
     })
   })
 
