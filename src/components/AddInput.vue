@@ -1,10 +1,21 @@
 <template>
-  <form class="fixed bottom-0 left-0 right-0 px-6 pb-4 flex bg-white" @submit.prevent="validateForm" @keydown.enter="validateForm">
+  <form
+    class="fixed bottom-0 left-0 right-0 px-6 pb-4 flex"
+    :class="[darkMode ? 'bg-black' : 'bg-white']"
+    @submit.prevent="validateForm"
+    @keydown.enter="validateForm"
+  >
     <label class="hidden" for="add">Add New Todo</label>
-    <input v-model="todoText" type="text" id="add" class="border border-gray-300 border-solid border-1 rounded-sm px-2 py-1 w-full">
-    <button class="px-4 py-2 font-bold" @click="validateForm">
-      +
-    </button>
+
+    <input
+      v-model="todoText"
+      type="text"
+      id="add"
+      class="border border-solid border-1 rounded-sm px-2 py-1 w-full"
+      :class="[darkMode ? 'bg-black border-gray-800' : 'bg-white border-gray-200']"
+    />
+
+    <button class="px-4 py-2 font-bold" @click="validateForm">+</button>
   </form>
 </template>
 
@@ -17,6 +28,11 @@ export default {
   data () {
     return {
       todoText: ''
+    }
+  },
+  computed: {
+    darkMode () {
+      return this.$store.state.darkMode
     }
   },
   methods: {

@@ -33,25 +33,63 @@ const propsData = {
 
 describe('List.vue', () => {
   describe('> Component', () => {
+    let state
+    let store
+
+    beforeEach(() => {
+      state = {
+        darkMode: false
+      }
+      store = new Vuex.Store({
+        state
+      })
+    })
     it('renders props.label when passed', () => {
       const wrapper = shallowMount(List, {
+        store,
+        localVue,
         propsData
       })
 
       expect(wrapper.findAll(Checkbox).length).toBe(propsData.list.length)
+    })
+
+    it('check darkMode Computed', () => {
+      const wrapper = shallowMount(List, {
+        store,
+        localVue,
+        propsData
+      })
+
+      expect(wrapper.vm.darkMode).toBe(false)
+    })
+
+    it('check darkMode Computed', () => {
+      const wrapper = shallowMount(List, {
+        store,
+        localVue,
+        propsData
+      })
+
+      expect(wrapper.vm.darkMode).toBe(false)
     })
   })
 
   describe('> Actions', () => {
     let actions
     let store
+    let state
 
     beforeEach(() => {
+      state = {
+        darkMode: false
+      }
       actions = {
         removeTodo: jest.fn(),
         toggleTodo: jest.fn()
       }
       store = new Vuex.Store({
+        state,
         actions
       })
     })

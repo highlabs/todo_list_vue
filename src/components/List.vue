@@ -1,6 +1,11 @@
 <template>
   <section>
-    <div  v-for="todo in list" :key="todo.id" class="border-b border-gray-200">
+    <div
+      v-for="todo in list"
+      :key="todo.id"
+      class="border-b"
+      :class="[darkMode ? 'bg-black border-gray-800' : 'bg-white border-gray-200']"
+    >
       <div class="flex flex-row items-center container mx-auto px-6">
         <Checkbox
           :label="todo.label"
@@ -9,9 +14,7 @@
           @change="toggleTodo"
           @click="toggleTodo"
         />
-        <button class="ml-auto text-xs" @click="() => removeTodo(todo)">
-          Remover
-        </button>
+        <button class="ml-auto text-xs" @click="() => removeTodo(todo)">Remover</button>
       </div>
     </div>
   </section>
@@ -32,6 +35,11 @@ export default {
       default () {
         return []
       }
+    }
+  },
+  computed: {
+    darkMode () {
+      return this.$store.state.darkMode
     }
   },
   methods: {

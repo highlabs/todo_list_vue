@@ -25,7 +25,8 @@ describe('Vuex', () => {
       ]
 
       state = {
-        todoList: todoList
+        todoList: todoList,
+        darkMode: false
       }
     })
     it('add todo to the list when commit AddTodo', () => {
@@ -57,6 +58,12 @@ describe('Vuex', () => {
       expect(state.todoList[0].completed).toBe(true)
       expect(state.todoList[1].completed).toBe(false)
       expect(state.todoList[2].completed).toBe(true)
+    })
+
+    it('toggle darkMode when commit toggleDarkMode', () => {
+      mutations.toggleDarkMode(state, !state.darkMode)
+
+      expect(state.darkMode).toBe(true)
     })
   })
 })

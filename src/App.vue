@@ -1,5 +1,5 @@
 <template>
-  <div id="app" class="font-body pb-16">
+  <div id="app" class="font-body pb-16 min-h-screen" :class="[darkMode ? 'bg-black text-gray-200' : 'bg-white text-black']">
     <Header />
     <List :list="list" v-if="list.length > 0" />
     <div class="text-center" v-else>
@@ -25,6 +25,9 @@ export default {
   computed: {
     list () {
       return this.$store.state.todoList
+    },
+    darkMode () {
+      return this.$store.state.darkMode
     }
   }
 }

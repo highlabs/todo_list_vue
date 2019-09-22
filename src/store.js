@@ -9,7 +9,8 @@ const vuexLocal = new VuexPersistence({
 Vue.use(Vuex)
 
 export const state = {
-  todoList: []
+  todoList: [],
+  darkMode: false
 }
 
 export const mutations = {
@@ -26,6 +27,9 @@ export const mutations = {
       }
       return item
     })
+  },
+  toggleDarkMode (state, mode) {
+    state.darkMode = mode
   }
 }
 
