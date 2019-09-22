@@ -1,5 +1,5 @@
 <template>
-  <header class="flex flex-row justify-between items-end py-10 container mx-auto px-6">
+  <header class="flex flex-row justify-between items-end py-6 container mx-auto px-6">
     <div class="flex flex-row items-center">
       <span class="text-4xl font-bold leading-none mr-2">{{ day }}</span>
       <div class="flex flex-col justify-between">

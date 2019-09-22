@@ -10,7 +10,10 @@ Vue.use(Vuex)
 
 export const state = {
   todoList: [],
-  darkMode: false
+  trashList: [],
+  darkMode: false,
+  showDone: true,
+  showTrash: false
 }
 
 export const mutations = {
@@ -28,8 +31,14 @@ export const mutations = {
       return item
     })
   },
-  toggleDarkMode (state, mode) {
-    state.darkMode = mode
+  toggleDarkMode (state) {
+    state.darkMode = !state.darkMode
+  },
+  toggleDone (state) {
+    state.showDone = !state.showDone
+  },
+  toggleTrash () {
+    state.showTrash = !state.showTrash
   }
 }
 
@@ -42,6 +51,15 @@ export const actions = {
   },
   removeTodo (context, todo) {
     context.commit('removeTodo', todo)
+  },
+  toggleDarkMode (context) {
+    context.commit('toggleDarkMode')
+  },
+  toggleDone (context) {
+    context.commit('toggleDone')
+  },
+  toggleTrash (context) {
+    context.commit('toggleTrash')
   }
 }
 
